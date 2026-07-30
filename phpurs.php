@@ -27,7 +27,7 @@ if (!\function_exists(__NAMESPACE__ . '\\phpurs_curry_fallback')) {
       };
     }
     if ($missing === 2) {
-      return function($a, $b = null) use ($fn, $args, $expected) {
+      return function($a, $b) use ($fn, $args, $expected) {
         $num = \func_num_args();
         if ($num === 1) { $args[] = $a; return phpurs_curry_fallback($fn, $args, $expected); }
         if ($num > 2) {
@@ -40,7 +40,7 @@ if (!\function_exists(__NAMESPACE__ . '\\phpurs_curry_fallback')) {
       };
     }
     if ($missing === 3) {
-      return function($a, $b = null, $c = null) use ($fn, $args, $expected) {
+      return function($a, $b, $c) use ($fn, $args, $expected) {
         $num = \func_num_args();
         if ($num === 1) { $args[] = $a; return phpurs_curry_fallback($fn, $args, $expected); }
         if ($num === 2) { $args[] = $a; $args[] = $b; return phpurs_curry_fallback($fn, $args, $expected); }
@@ -54,7 +54,7 @@ if (!\function_exists(__NAMESPACE__ . '\\phpurs_curry_fallback')) {
       };
     }
     if ($missing === 4) {
-      return function($a, $b = null, $c = null, $d = null) use ($fn, $args, $expected) {
+      return function($a, $b, $c, $d) use ($fn, $args, $expected) {
         $num = \func_num_args();
         if ($num === 1) { $args[] = $a; return phpurs_curry_fallback($fn, $args, $expected); }
         if ($num === 2) { $args[] = $a; $args[] = $b; return phpurs_curry_fallback($fn, $args, $expected); }
@@ -96,24 +96,10 @@ if (!\function_exists(__NAMESPACE__ . '\\phpurs_eval_thunk')) {
 $GLOBALS['Prim_undefined'] = function() { throw new \Exception("undefined"); };
 $ffi_Data_Semigroup = \call_user_func(function() {
   $exports = [];
-$concatString = function($x, $y = null) use (&$concatString) {
-    if (\func_num_args() < 2) {
-        $__args = \func_get_args();
-        return function(...$more) use ($__args, &$concatString) {
-
-            return $concatString(...\array_merge($__args, $more));
-        };
-    }
+$concatString = function($x, $y) use (&$concatString) {
     return $x . $y;
 };
-$concatArray = function($x, $y = null) use (&$concatArray) {
-    if (\func_num_args() < 2) {
-        $__args = \func_get_args();
-        return function(...$more) use ($__args, &$concatArray) {
-
-            return $concatArray(...\array_merge($__args, $more));
-        };
-    }
+$concatArray = function($x, $y) use (&$concatArray) {
     return \array_merge($x, $y);
 };
 
@@ -200,7 +186,7 @@ if (!\function_exists(__NAMESPACE__ . '\\phpurs_curry_fallback')) {
       };
     }
     if ($missing === 2) {
-      return function($a, $b = null) use ($fn, $args, $expected) {
+      return function($a, $b) use ($fn, $args, $expected) {
         $num = \func_num_args();
         if ($num === 1) { $args[] = $a; return phpurs_curry_fallback($fn, $args, $expected); }
         if ($num > 2) {
@@ -213,7 +199,7 @@ if (!\function_exists(__NAMESPACE__ . '\\phpurs_curry_fallback')) {
       };
     }
     if ($missing === 3) {
-      return function($a, $b = null, $c = null) use ($fn, $args, $expected) {
+      return function($a, $b, $c) use ($fn, $args, $expected) {
         $num = \func_num_args();
         if ($num === 1) { $args[] = $a; return phpurs_curry_fallback($fn, $args, $expected); }
         if ($num === 2) { $args[] = $a; $args[] = $b; return phpurs_curry_fallback($fn, $args, $expected); }
@@ -227,7 +213,7 @@ if (!\function_exists(__NAMESPACE__ . '\\phpurs_curry_fallback')) {
       };
     }
     if ($missing === 4) {
-      return function($a, $b = null, $c = null, $d = null) use ($fn, $args, $expected) {
+      return function($a, $b, $c, $d) use ($fn, $args, $expected) {
         $num = \func_num_args();
         if ($num === 1) { $args[] = $a; return phpurs_curry_fallback($fn, $args, $expected); }
         if ($num === 2) { $args[] = $a; $args[] = $b; return phpurs_curry_fallback($fn, $args, $expected); }
@@ -269,24 +255,10 @@ if (!\function_exists(__NAMESPACE__ . '\\phpurs_eval_thunk')) {
 $GLOBALS['Prim_undefined'] = function() { throw new \Exception("undefined"); };
 $ffi_Data_Semiring = \call_user_func(function() {
   $exports = [];
-$intAdd = function($a, $b = null) use (&$intAdd) {
-    if (\func_num_args() < 2) {
-        $__args = \func_get_args();
-        return function(...$more) use ($__args, &$intAdd) {
-
-            return $intAdd(...\array_merge($__args, $more));
-        };
-    }
+$intAdd = function($a, $b) use (&$intAdd) {
     return $a + $b;
 };
-$intMul = function($a, $b = null) use (&$intMul) {
-    if (\func_num_args() < 2) {
-        $__args = \func_get_args();
-        return function(...$more) use ($__args, &$intMul) {
-
-            return $intMul(...\array_merge($__args, $more));
-        };
-    }
+$intMul = function($a, $b) use (&$intMul) {
     return $a * $b;
 };
 $numAdd = $intAdd;
@@ -379,7 +351,7 @@ if (!\function_exists(__NAMESPACE__ . '\\phpurs_curry_fallback')) {
       };
     }
     if ($missing === 2) {
-      return function($a, $b = null) use ($fn, $args, $expected) {
+      return function($a, $b) use ($fn, $args, $expected) {
         $num = \func_num_args();
         if ($num === 1) { $args[] = $a; return phpurs_curry_fallback($fn, $args, $expected); }
         if ($num > 2) {
@@ -392,7 +364,7 @@ if (!\function_exists(__NAMESPACE__ . '\\phpurs_curry_fallback')) {
       };
     }
     if ($missing === 3) {
-      return function($a, $b = null, $c = null) use ($fn, $args, $expected) {
+      return function($a, $b, $c) use ($fn, $args, $expected) {
         $num = \func_num_args();
         if ($num === 1) { $args[] = $a; return phpurs_curry_fallback($fn, $args, $expected); }
         if ($num === 2) { $args[] = $a; $args[] = $b; return phpurs_curry_fallback($fn, $args, $expected); }
@@ -406,7 +378,7 @@ if (!\function_exists(__NAMESPACE__ . '\\phpurs_curry_fallback')) {
       };
     }
     if ($missing === 4) {
-      return function($a, $b = null, $c = null, $d = null) use ($fn, $args, $expected) {
+      return function($a, $b, $c, $d) use ($fn, $args, $expected) {
         $num = \func_num_args();
         if ($num === 1) { $args[] = $a; return phpurs_curry_fallback($fn, $args, $expected); }
         if ($num === 2) { $args[] = $a; $args[] = $b; return phpurs_curry_fallback($fn, $args, $expected); }
@@ -452,14 +424,7 @@ $showIntImpl = function($i) use (&$showIntImpl) { return (string)$i; };
 $showStringImpl = function($s) use (&$showStringImpl) { return $s; };
 $showNumberImpl = function($n) use (&$showNumberImpl) { return (string)$n; };
 $showCharImpl = function($c) use (&$showCharImpl) { return $c; };
-$showArrayImpl = function($f, $xs = null) use (&$showArrayImpl) {
-    if (\func_num_args() < 2) {
-        $__args = \func_get_args();
-        return function(...$more) use ($__args, &$showArrayImpl) {
-
-            return $showArrayImpl(...\array_merge($__args, $more));
-        };
-    }
+$showArrayImpl = function($f, $xs) use (&$showArrayImpl) {
     return "[" . implode(",", array_map($f, $xs)) . "]";
 };
 
@@ -552,7 +517,7 @@ if (!\function_exists(__NAMESPACE__ . '\\phpurs_curry_fallback')) {
       };
     }
     if ($missing === 2) {
-      return function($a, $b = null) use ($fn, $args, $expected) {
+      return function($a, $b) use ($fn, $args, $expected) {
         $num = \func_num_args();
         if ($num === 1) { $args[] = $a; return phpurs_curry_fallback($fn, $args, $expected); }
         if ($num > 2) {
@@ -565,7 +530,7 @@ if (!\function_exists(__NAMESPACE__ . '\\phpurs_curry_fallback')) {
       };
     }
     if ($missing === 3) {
-      return function($a, $b = null, $c = null) use ($fn, $args, $expected) {
+      return function($a, $b, $c) use ($fn, $args, $expected) {
         $num = \func_num_args();
         if ($num === 1) { $args[] = $a; return phpurs_curry_fallback($fn, $args, $expected); }
         if ($num === 2) { $args[] = $a; $args[] = $b; return phpurs_curry_fallback($fn, $args, $expected); }
@@ -579,7 +544,7 @@ if (!\function_exists(__NAMESPACE__ . '\\phpurs_curry_fallback')) {
       };
     }
     if ($missing === 4) {
-      return function($a, $b = null, $c = null, $d = null) use ($fn, $args, $expected) {
+      return function($a, $b, $c, $d) use ($fn, $args, $expected) {
         $num = \func_num_args();
         if ($num === 1) { $args[] = $a; return phpurs_curry_fallback($fn, $args, $expected); }
         if ($num === 2) { $args[] = $a; $args[] = $b; return phpurs_curry_fallback($fn, $args, $expected); }
@@ -695,7 +660,7 @@ if (!\function_exists(__NAMESPACE__ . '\\phpurs_curry_fallback')) {
       };
     }
     if ($missing === 2) {
-      return function($a, $b = null) use ($fn, $args, $expected) {
+      return function($a, $b) use ($fn, $args, $expected) {
         $num = \func_num_args();
         if ($num === 1) { $args[] = $a; return phpurs_curry_fallback($fn, $args, $expected); }
         if ($num > 2) {
@@ -708,7 +673,7 @@ if (!\function_exists(__NAMESPACE__ . '\\phpurs_curry_fallback')) {
       };
     }
     if ($missing === 3) {
-      return function($a, $b = null, $c = null) use ($fn, $args, $expected) {
+      return function($a, $b, $c) use ($fn, $args, $expected) {
         $num = \func_num_args();
         if ($num === 1) { $args[] = $a; return phpurs_curry_fallback($fn, $args, $expected); }
         if ($num === 2) { $args[] = $a; $args[] = $b; return phpurs_curry_fallback($fn, $args, $expected); }
@@ -722,7 +687,7 @@ if (!\function_exists(__NAMESPACE__ . '\\phpurs_curry_fallback')) {
       };
     }
     if ($missing === 4) {
-      return function($a, $b = null, $c = null, $d = null) use ($fn, $args, $expected) {
+      return function($a, $b, $c, $d) use ($fn, $args, $expected) {
         $num = \func_num_args();
         if ($num === 1) { $args[] = $a; return phpurs_curry_fallback($fn, $args, $expected); }
         if ($num === 2) { $args[] = $a; $args[] = $b; return phpurs_curry_fallback($fn, $args, $expected); }
